@@ -1,0 +1,6 @@
+package com.cts.railway;
+
+public class Seat {
+	
+	private int SeatNo;
+}

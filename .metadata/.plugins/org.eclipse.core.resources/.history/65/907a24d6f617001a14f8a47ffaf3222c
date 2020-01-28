@@ -1,0 +1,16 @@
+package com.cts.toll;
+
+import java.util.List;
+
+public interface TollPaymentDAO {
+	
+	public List<Vehicle> getAllVehicle();
+	public List<Toll> getAllTolls();
+	public void addTolls(Toll toll);
+	public void Addvehicel(Vehicle vehicel);
+	public void addPaymentinToll(PaymentDetails details);
+	public List<PaymentDetails> getTollpayment();
+	public List<PaymentDetails> getVehiclepayment();
+	public void AddRoute(MapRoute route);
+	public MapRoute getRoute();
+}

@@ -1,0 +1,12 @@
+package com.cts.toll;
+
+import java.util.List;
+
+public class Toll {
+	
+	private String Tollname;
+	private String location;
+	private List<Schemes> payment_schemes;
+	private List<PaymentDetails> pay_details;
+	private double TotalAmount;
+}

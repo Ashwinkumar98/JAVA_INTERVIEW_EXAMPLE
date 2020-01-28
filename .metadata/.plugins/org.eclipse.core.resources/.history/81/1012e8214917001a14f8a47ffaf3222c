@@ -1,0 +1,49 @@
+package com.cts.toll;
+
+public class PaymentDetails {
+	private String vehicleNo;
+	private VehicelType type;
+	private Customer userType;
+	private String Amount;
+	
+	public PaymentDetails(String vehicleNo, VehicelType type, Customer userType, String amount) {
+		
+		this.vehicleNo = vehicleNo;
+		this.type = type;
+		this.userType = userType;
+		Amount = amount;
+	}
+
+	public String getVehicleNo() {
+		return vehicleNo;
+	}
+
+	public void setVehicleNo(String vehicleNo) {
+		this.vehicleNo = vehicleNo;
+	}
+
+	public VehicelType getType() {
+		return type;
+	}
+
+	public void setType(VehicelType type) {
+		this.type = type;
+	}
+
+	public Customer getUserType() {
+		return userType;
+	}
+
+	public void setUserType(Customer userType) {
+		this.userType = userType;
+	}
+
+	public String getAmount() {
+		return Amount;
+	}
+
+	public void setAmount(String amount) {
+		Amount = amount;
+	}
+	
+}

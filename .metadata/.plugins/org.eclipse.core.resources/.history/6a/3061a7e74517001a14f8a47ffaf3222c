@@ -1,0 +1,10 @@
+package com.cts.toll;
+
+import java.util.List;
+
+public class Trips {
+	
+	private char source;
+	private char destination;
+	private List<Toll> tolls;
+}

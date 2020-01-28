@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.cts.command.CloseDocumentCommand&apos; to &apos;SaveDocumentCommand&apos;&#x0D;&#x0A;- Original project: &apos;Commandpattern&apos;&#x0D;&#x0A;- Original element: &apos;com.cts.command.CloseDocumentCommand&apos;&#x0D;&#x0A;- Renamed element: &apos;com.cts.command.SaveDocumentCommand&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;CloseDocumentCommand&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;com.cts.command{CloseDocumentCommand.java[CloseDocumentCommand" matchStrategy="1" name="SaveDocumentCommand" qualified="false" references="true" similarDeclarations="false" stamp="1575270542807" textual="false" version="1.0"/>
+</session>

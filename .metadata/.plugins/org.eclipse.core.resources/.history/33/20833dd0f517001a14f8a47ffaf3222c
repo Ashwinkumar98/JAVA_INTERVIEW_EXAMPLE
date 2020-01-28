@@ -1,0 +1,19 @@
+package com.cts.toll;
+
+import java.util.List;
+
+public class Tollfactory {
+	
+	public void CalculateFare(DataBase database,char src,char dest,Vehicle vehicle) {
+		List<Toll> tolls=database.getRoute().getTolls();
+		for(Toll i : tolls) {
+			if(src>=i.getLocation() && dest<=i.getLocation()) {
+				for(Schemes j :i.getPaymentSchemes()) {
+					if(j.getType()==vehicle.getType()) {
+						PaymentDetails pay = new PaymentDetails(i, vehicle, j.getPrice());
+					}
+				}
+			}
+		}
+	}
+}

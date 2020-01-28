@@ -1,0 +1,33 @@
+package com.cts.railway;
+
+public class DataBase implements TrainDAO{
+	
+	private Train train;
+	private int[][] Chart;
+	
+	public DataBase() {
+		 Chart = new int[8][5];
+		 char x='a';
+		 System.out.println(x-'a');
+	}
+
+	@Override
+	public Passangers addPassanger(Passangers pass) {
+		return null;
+	}
+
+	@Override
+	public int[][] getChart() {
+		return Chart;
+	}
+
+	@Override
+	public void AddTrain(Train train) {
+		this.train=train;
+	}
+
+	@Override
+	public Train getTrain() {
+		return train;
+	}
+}

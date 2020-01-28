@@ -1,0 +1,17 @@
+package com.cts.railway;
+
+import java.util.Queue;
+
+public interface TrainDAO {
+	
+	public void AddTrain(Train train);
+	public Train getTrain();
+	public Seat getSeat(int no);
+	public Passangers getPassanger(int pnr);
+	public int[][] getChart();
+	public void addwaitingList(Passangers pass);
+	public void addRac(Passangers pass);
+	public Queue<Passangers> getwaitingList();
+	public Queue<Passangers> getRacList();
+	public void removePass(Passangers pass,int seatno);
+}

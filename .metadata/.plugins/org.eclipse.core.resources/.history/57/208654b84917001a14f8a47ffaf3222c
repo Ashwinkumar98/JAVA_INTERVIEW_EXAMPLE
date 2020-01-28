@@ -1,0 +1,8 @@
+package com.cts.toll;
+
+public class PaymentDetails {
+	
+	private VehicelType type;
+	private String No;
+	private double amt;
+}

@@ -1,0 +1,18 @@
+package com.cts.toll;
+
+import java.util.List;
+
+public class Trips {
+	
+	private char source;
+	private char destination;
+	private List<Toll> tolls;
+	
+	public Trips(char source, char destination, List<Toll> tolls) {
+		this.source = source;
+		this.destination = destination;
+		this.tolls = tolls;
+	}
+	
+	
+}

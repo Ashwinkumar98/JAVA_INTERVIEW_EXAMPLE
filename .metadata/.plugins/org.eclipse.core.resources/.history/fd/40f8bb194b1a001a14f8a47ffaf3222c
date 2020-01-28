@@ -1,0 +1,38 @@
+package com.cts.railway;
+
+import java.util.ArrayList;
+
+public class TicketBooking {
+	
+	public int checkSeat(DataBase db,char src,char dest) {
+		int[][] chart = db.getChart();
+		for(int i=0;i<8;i++) {
+			if(chart[i][dest-'a']==0 && (chart[i][src-'a']==0 || chart[i][src-'a']==1) ){
+				return i;
+			}
+		}
+		return -1;
+	}
+	
+	public void updateChart(int status,char src,char dest,DataBase db) {
+		int[][] chart = db.getChart();
+		for(int i=(src-'a');i<=(dest-'a');i++) {
+			chart[status][i]=1;
+		}
+	}
+	
+	public void BookTicket(int pnr,String name,int age,String berth,char src,char dest,DataBase db) {
+		
+		int status = checkSeat(db, src, dest);
+		if(status!=-1) {
+			updateChart(status,src,dest,db);
+			if(db.getSeat(status)!=null) {
+				db.getSeat(status).getPass().add(new Passangers(pnr, name, age, berth, "CNF"));
+			}else {
+				db.getTrain().getSeats().add(new Seat(status, new ArrayList<Passangers>()));
+				db.getSeat(status).getPass().add(new Passangers(pnr, name, age, berth, "CNF"));
+			}
+		}
+	}
+	
+}

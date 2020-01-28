@@ -1,0 +1,28 @@
+package com.cts.toll;
+
+public class Schemes {
+	private VehicelType Type;
+	private double price;
+	
+	public Schemes(VehicelType type, double price) {
+		Type = type;
+		this.price = price;
+	}
+
+	public VehicelType getType() {
+		return Type;
+	}
+
+	public void setType(VehicelType type) {
+		Type = type;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	
+}

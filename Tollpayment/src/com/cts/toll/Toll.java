@@ -1,0 +1,61 @@
+package com.cts.toll;
+
+import java.util.List;
+
+
+public class Toll {
+	
+	private String Tollname;
+	private char location;
+	private List<Schemes> paymentSchemes;
+	private double TotalAmount;
+	private int discount;
+	
+	public Toll(String tollname, char location, List<Schemes> paymentSchemes,
+			double totalAmount, int discount) {
+		
+		Tollname = tollname;
+		this.location = location;
+		this.paymentSchemes = paymentSchemes;
+		TotalAmount = totalAmount;
+		this.discount = discount;
+	}
+	
+	public String getTollname() {
+		return Tollname;
+	}
+	public void setTollname(String tollname) {
+		Tollname = tollname;
+	}
+	public char getLocation() {
+		return location;
+	}
+	public void setLocation(char location) {
+		this.location = location;
+	}
+	public List<Schemes> getPaymentSchemes() {
+		return paymentSchemes;
+	}
+	public void setPaymentSchemes(List<Schemes> paymentSchemes) {
+		this.paymentSchemes = paymentSchemes;
+	}
+	public double getTotalAmount() {
+		return TotalAmount;
+	}
+	public void setTotalAmount(double totalAmount) {
+		TotalAmount = totalAmount;
+	}
+	public int getDiscount() {
+		return discount;
+	}
+	public void setDiscount(int discount) {
+		this.discount = discount;
+	}
+
+	@Override
+	public String toString() {
+		return "Toll [Tollname=" + Tollname + ", location=" + location + ", paymentSchemes=" + paymentSchemes
+				+ ", TotalAmount=" + TotalAmount + ", discount=" + discount + "]";
+	}
+	
+}

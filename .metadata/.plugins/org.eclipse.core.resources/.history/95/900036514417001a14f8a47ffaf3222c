@@ -1,0 +1,6 @@
+package com.cts.toll;
+
+public class Schemes {
+	private VehicelType Type;
+	private double price;
+}

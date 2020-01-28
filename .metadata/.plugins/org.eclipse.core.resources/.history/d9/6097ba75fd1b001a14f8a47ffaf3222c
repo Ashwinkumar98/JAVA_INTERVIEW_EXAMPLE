@@ -1,0 +1,91 @@
+package com.cts.railway;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class DataBase implements TrainDAO{
+	
+	private Train train;
+	private int[][] Chart;
+	private Queue<Passangers> rac;
+	private Queue<Passangers> waitingList;
+	
+	public DataBase() {
+		Chart = new int[3][4];
+		rac=new LinkedList<>();
+		waitingList=new LinkedList<>();
+	}
+
+	@Override
+	public Passangers getPassanger(int pnr) {
+		for(Seat seat : train.getSeats()) {
+			for(Passangers pass : seat.getPass()) {
+				if(pass.getPnr()==pnr) {
+					return pass;
+				}
+			}
+		}
+		for(Passangers pass : rac) {
+			if(pass.getPnr()==pnr) {
+				return pass;
+			}
+		}
+		for(Passangers pass : waitingList) {
+			if(pass.getPnr()==pnr) {
+				return pass;
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public int[][] getChart() {
+		return Chart;
+	}
+
+	@Override
+	public void AddTrain(Train train) {
+		this.train=train;
+	}
+
+	@Override
+	public Train getTrain() {
+		return train;
+	}
+
+	@Override
+	public Seat getSeat(int no) {
+		for(Seat s : train.getSeats()) {
+			if(s.getSeatNo()==no) {
+				return s;
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public void addwaitingList(Passangers pass) {
+		waitingList.add(pass);
+	}
+
+	@Override
+	public void addRac(Passangers pass) {
+		waitingList.add(pass);
+	}
+
+	@Override
+	public Queue<Passangers> getwaitingList() {
+		return waitingList;
+	}
+
+	@Override
+	public Queue<Passangers> getRacList() {
+		return rac;
+	}
+
+	@Override
+	public void removePass(Passangers pass,int seatno) {
+		train.getSeats().get(seatno).getPass().remove(pass);
+	}
+}

@@ -1,0 +1,45 @@
+package com.cts.toll;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class DataBase implements TollPaymentDAO{
+	
+	private List<Toll> tolls;
+	private List<Vehicle> vehicles;
+	
+	public DataBase() {
+		tolls = new ArrayList<>();
+		vehicles =new ArrayList<>();
+	}
+
+	@Override
+	public List<Vehicle> getAllVehicle() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Toll> getAllTolls() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void addTolls(Toll toll) {
+		tolls.add(toll);
+		
+	}
+
+	@Override
+	public void addPaymentinToll(Toll toll, PaymentDetails vehicle) {
+		toll.getPayDetails().add(vehicle);
+	}
+
+	@Override
+	public void AddRoute(List<MapRoute> route) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

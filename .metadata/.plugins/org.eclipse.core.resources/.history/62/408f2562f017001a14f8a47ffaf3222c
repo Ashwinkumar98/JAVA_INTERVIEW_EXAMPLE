@@ -1,0 +1,42 @@
+package com.cts.toll;
+
+import com.cts.toll.VehicelType.Type;
+
+public class Vehicle {
+	
+	private String name;
+	private VehicelType.Type type;
+	private double amountPaid;
+	
+	public Vehicle(String name, Type type, double amountPaid) {
+		super();
+		this.name = name;
+		this.type = type;
+		this.amountPaid = amountPaid;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public VehicelType.Type getType() {
+		return type;
+	}
+
+	public void setType(VehicelType.Type type) {
+		this.type = type;
+	}
+
+	public double getAmountPaid() {
+		return amountPaid;
+	}
+
+	public void setAmountPaid(double amountPaid) {
+		this.amountPaid = amountPaid;
+	}
+
+}

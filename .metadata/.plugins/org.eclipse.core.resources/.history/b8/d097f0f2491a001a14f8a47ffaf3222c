@@ -1,0 +1,19 @@
+package com.cts.railway;
+
+import java.util.Scanner;
+
+public class App {
+	
+	public static void main(String[] args) {
+		DataBase db = new DataBase();
+		String name,berth;
+		int age,ch;
+		char src,dest;
+		Scanner in = new Scanner(System.in);
+		
+		while(true) {
+			System.out.println("1.ADD TRAIN 2.BOOK TICKET 3.OCCUPANCY CHART");
+			ch=in.nextInt();
+		}
+	}
+}

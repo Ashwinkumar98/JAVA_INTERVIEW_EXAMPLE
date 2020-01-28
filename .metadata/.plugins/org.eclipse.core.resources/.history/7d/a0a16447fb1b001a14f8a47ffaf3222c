@@ -1,0 +1,33 @@
+package com.cts.toll;
+
+import java.util.List;
+
+public class Tollfactory {
+	
+	public void CalculateFare(DataBase database,char src,char dest,Vehicle vehicle) {
+		List<Toll> tolls=database.getRoute().getTolls();
+		Toll toll =tolls.stream().filter(t->t.getLocation()>src && t.getLocation()<=dest)
+					  .filter(t->t.getPaymentSchemes()
+							      .stream()
+							      .anyMatch(s->s.getType().equals(vehicle.getType())))
+					  .findFirst().get();
+		System.out.println("Lambda"+toll.toString());
+		
+		for(Toll i : tolls) {
+			
+			if(i.getLocation()>=src && i.getLocation()<=dest) {
+				
+				for(Schemes j :i.getPaymentSchemes()) {
+					if(j.getType()==vehicle.getType()) {
+						PaymentDetails pay = new PaymentDetails(i, vehicle, j.getPrice());
+						i.setTotalAmount(i.getTotalAmount()+j.getPrice());
+						vehicle.setAmountPaid(vehicle.getAmountPaid()+j.getPrice());
+						database.addPaymentinToll(pay);
+						System.out.println("Usual" +i);
+						break;
+					}
+				}
+			}
+		}
+	}
+}

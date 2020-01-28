@@ -1,0 +1,5 @@
+package com.cts.toll;
+
+public enum VehicelType {
+	Car,BUS,Van,Jepp,Truck,Axel3,Axel7
+}

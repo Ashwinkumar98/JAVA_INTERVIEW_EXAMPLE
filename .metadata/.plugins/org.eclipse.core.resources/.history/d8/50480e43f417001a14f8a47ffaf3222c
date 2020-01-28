@@ -1,0 +1,8 @@
+package com.cts.toll;
+
+public class PaymentDetails {
+	
+	private Toll toll;
+	private Vehicle vehicle;
+	
+}

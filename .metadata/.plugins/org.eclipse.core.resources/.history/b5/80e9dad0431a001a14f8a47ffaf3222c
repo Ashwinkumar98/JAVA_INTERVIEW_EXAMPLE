@@ -1,0 +1,13 @@
+package com.cts.railway;
+
+import java.util.List;
+
+public class Train {
+	
+	private int no;
+	private String name;
+	private String src;
+	private String dest;
+	private List<Seat> seats;
+	
+}

@@ -1,0 +1,7 @@
+package com.cts.toll;
+
+public class MapRoute {
+	private char source;
+	private char destination;
+	
+}

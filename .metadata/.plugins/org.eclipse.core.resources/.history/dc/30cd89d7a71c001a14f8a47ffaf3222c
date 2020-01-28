@@ -1,0 +1,18 @@
+package lambdaFunction;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class App {
+
+	public static void main(String[] args) {
+		
+		List<Book> books=new ArrayList<>();
+		books.add(new Book(1987363544L, "Java 8", "James", 4.7, "Amazon"));
+		books.add(new Book(1986363544L, "Engineering Graphics", "Vinoth", 4.0, "Flipkart"));
+		books.add(new Book(1980363544L, "Integration and Differentiation", "Veerarajan", 4.2, "Flipkart"));
+		books.add(new Book(1980360544L, "Data Structures", "Kumar", 4.0, "Amazon"));
+		books.add(new Book(1980360544L, "Algorithms", "suresh", 4.2, "Snapdeel"));
+	}
+
+}

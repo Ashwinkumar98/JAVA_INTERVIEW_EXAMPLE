@@ -1,0 +1,69 @@
+package com.cts.railway;
+
+import java.util.ArrayList;
+
+public class TicketBooking {
+	
+	public int checkSeat(DataBase db,char src,char dest) {
+		int[][] chart = db.getChart();
+		for(int i=0;i<3;i++) {
+			if(chart[i][dest-'A'-1]==0 && chart[i][src-'A']==0 ){
+				return i;
+			}
+		}
+		return -1;
+	}
+	
+	public void updateChart(int status,char src,char dest,DataBase db,int val) {
+		int[][] chart = db.getChart();
+		for(int i=(src-'A');i<=(dest-'A'-1);i++) {
+			chart[status][i]=val;
+		}
+	}
+	
+	public void display(int pnr,String name,int age,String berth,String status) {
+		System.out.println("Ticket Booked Successfully");
+		
+		System.out.println("Pnr No : "+pnr);
+		System.out.println("Name : "+name);
+		System.out.println("Age : "+age);
+		System.out.println("Berth : "+berth);
+		System.out.println("Current Status :"+status);
+	}
+	
+	public void BookTicket(int pnr,String name,int age,String berth,char src,char dest,DataBase db) {
+		
+		int status = checkSeat(db, src, dest);
+		if(status!=-1) {
+			updateChart(status,src,dest,db,1);
+			if(db.getSeat(status)!=null) {
+				db.getSeat(status).getPass().add(new Passangers(pnr, name, age, berth, "CNF", src,dest,status));
+				display(pnr, name, age, berth, "CNF");
+				
+			}else {
+				db.getTrain().getSeats().add(new Seat(status, new ArrayList<Passangers>()));
+				db.getSeat(status).getPass().add(new Passangers(pnr, name, age, berth, "CNF",src,dest,status));
+				display(pnr, name, age, berth, "CNF");
+			}
+		}else if(db.getRacList().size()<=Train.rac){
+			db.addRac(new Passangers(pnr, name, age, berth, "RAC",src,dest,-1));
+			display(pnr, name, age, berth, "RAC");
+		}else if(db.getwaitingList().size()<=Train.wl){
+			db.addwaitingList(new Passangers(pnr, name, age, berth, "WL",src,dest,-1));
+			display(pnr, name, age, berth, "WL");
+		}else {
+			System.out.println("No tickets are available");
+		}
+	}
+	
+	public void CancleTicket(Passangers pass,DataBase db) {
+		if(pass.getStatus()=="WL") {
+			db.getwaitingList().remove(pass);
+		}else if(pass.getStatus()=="RAC") {
+			db.getRacList().remove(pass);
+		}else {
+			db.removePass(pass, pass.getSeatno());
+			updateChart(pass.getSeatno(), pass.get, dest, db, val);
+		}
+	}
+}

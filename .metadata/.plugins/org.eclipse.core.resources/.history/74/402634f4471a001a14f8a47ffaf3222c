@@ -1,0 +1,8 @@
+package com.cts.railway;
+
+public interface TrainDAO {
+	
+	public void AddTrain(Train train);
+	public Passangers addPassanger(Passangers pass);
+	public int[][] getChart();
+}

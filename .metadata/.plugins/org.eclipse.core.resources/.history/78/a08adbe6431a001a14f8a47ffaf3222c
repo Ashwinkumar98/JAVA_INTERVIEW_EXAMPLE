@@ -1,0 +1,9 @@
+package com.cts.railway;
+
+import java.util.List;
+
+public class Seat {
+	
+	private int SeatNo;
+	private List<Passangers> pass;
+}

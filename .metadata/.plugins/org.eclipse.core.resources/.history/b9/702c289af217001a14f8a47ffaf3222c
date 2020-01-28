@@ -1,0 +1,89 @@
+package com.cts.toll;
+
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+
+
+public class App {
+	
+	private static Scanner in;
+
+	public static void main(String[] args) {
+		DataBase database = new DataBase();
+		int ch,no,dis;
+		char source,destination,point;
+		String name,number,type,userTy;
+		char[] points;
+		in = new Scanner(System.in);
+		while(true) {
+			System.out.println("1.Add Route"+"\n"+"2.Add Tolls in  Route"+"\n"+"3.Get All Tolls ");
+			ch=in.nextInt();
+			switch(ch) {
+				case 1: System.out.print("Source : ");
+					    source = in.next().charAt(0);
+					    System.out.print("Destination : ");
+					    destination = in.next().charAt(0);
+					    System.out.println("Enter No of intermediate wave point");
+					    no=in.nextInt();
+					    points = new char[no];
+					    for(int i=0;i<no;i++) {
+					    	points[i]=in.next().charAt(0);
+					    }
+					    MapRoute route = new MapRoute(source, destination, points, new ArrayList<Toll>());
+					    database.AddRoute(route);
+					    break;
+			   case 2 : 
+				   		System.out.println("Enter No of Tolls in the Route");
+			            System.out.print(database.getRoute().getSource()+"\t");
+			            for(char i : database.getRoute().getWavepoints()) {
+			            	System.out.print(i+"\t");
+			            }
+			            System.out.print(database.getRoute().getDestination()+"\n");
+					    no=in.nextInt();
+					    for(int i=0;i<no;i++) {
+					    	
+					    	System.out.print("\nToll name : ");
+					    	name=in.next();
+					    	System.out.print("Toll Location : ");
+					    	point=in.next().charAt(0);
+					    	System.out.print("Discount % : ");
+					    	dis=in.nextInt();
+					    	Toll toll =new Toll(name, point, new ArrayList<>(), new ArrayList<>(), 0.0, dis);
+					    	System.out.println("Payment Schemes");
+					    	for(String vehicle : VehicelType.getEnums()) {
+					    		System.out.print("\nAmount For "+vehicle+" ");
+					    		double amt=in.nextDouble();
+					    		toll.getPaymentSchemes().add(new Schemes(vehicle, amt));
+					    	}
+					    	database.addTolls(toll);
+					    }
+					    break;
+			   case 3 : List<Toll> tolls = database.getAllTolls();
+			   			for(Toll toll : tolls) {
+			   				System.out.println(toll.toString());
+			   			}
+			   			break;
+			   case 4 : System.out.println("Enter your vehicle-no");
+			   			number=in.next();
+			   			System.out.println("Enter your vehicle-Type");
+			   			for(String vehicle : VehicelType.getEnums()) {
+				    		System.out.print(VehicelType.getEnums().indexOf(vehicle)+"."+vehicle+"\n");
+				    	}
+			   			no=in.nextInt();
+			   			type=VehicelType.getEnums().get(no);
+			   			System.out.println("Enter your User-Type");
+			   			for(String user : Customer.getEnums()) {
+				    		System.out.print(VehicelType.getEnums().indexOf(user)+"."+user+"\n");
+				    	}
+			   			no=in.nextInt();
+			   			userTy=Customer.getEnums().get(no);
+			   			
+			}
+		}
+
+	}
+
+}

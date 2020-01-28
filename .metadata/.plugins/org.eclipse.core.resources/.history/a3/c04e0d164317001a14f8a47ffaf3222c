@@ -1,0 +1,8 @@
+package com.cts.toll;
+
+public class PaymentDetails {
+	
+	private String vehicleNo;
+	private String Type;
+	Private String Amount;
+}

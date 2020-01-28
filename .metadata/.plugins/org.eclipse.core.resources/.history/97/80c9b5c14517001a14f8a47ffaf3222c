@@ -1,0 +1,7 @@
+package com.cts.toll;
+
+public class Vehicle {
+	
+	private String name;
+	
+}

@@ -1,0 +1,55 @@
+package com.cts.railway;
+
+import java.util.List;
+
+public class Train {
+	
+	private int no;
+	private String name;
+	private String src;
+	private String dest;
+	private List<Seat> seats;
+	
+	public Train(int no, String name, String src, String dest, List<Seat> seats) {
+		super();
+		this.no = no;
+		this.name = name;
+		this.src = src;
+		this.dest = dest;
+		this.seats = seats;
+	}
+	
+	public int getNo() {
+		return no;
+	}
+	public void setNo(int no) {
+		this.no = no;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getSrc() {
+		return src;
+	}
+	public void setSrc(String src) {
+		this.src = src;
+	}
+	public String getDest() {
+		return dest;
+	}
+	public void setDest(String dest) {
+		this.dest = dest;
+	}
+	public List<Seat> getSeats() {
+		return seats;
+	}
+	public void setSeats(List<Seat> seats) {
+		this.seats = seats;
+	}
+	
+	
+	
+}

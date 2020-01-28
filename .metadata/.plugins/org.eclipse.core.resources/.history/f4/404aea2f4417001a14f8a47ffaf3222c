@@ -1,0 +1,6 @@
+package com.cts.toll;
+
+public class Schemes {
+	private String vechileType;
+	private double price;
+}

@@ -1,0 +1,9 @@
+package com.cts.railway;
+
+public class Train {
+	
+	private int no;
+	private String name;
+	private String src;
+	private String dest;
+}
